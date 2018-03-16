@@ -42,7 +42,13 @@ export function init(
   // if either of those are not supported, then use the core w/ polyfills
   // also check if the page was build with ssr or not
   x = doc.createElement('script');
-  x.src = publicPath + (usePolyfills(win as any, win.location, x, 'import("")') ? appCorePolyfilled : appCore);
+  if (usePolyfills(win as any, win.location, x, 'import("")')) {
+    x.src = publicPath + appCorePolyfilled;
+  } else {
+    x.src = publicPath + appCore;
+    x.setAttribute('type', 'module');
+    x.setAttribute('crossorigin', true);
+  }
   x.setAttribute('data-path', publicPath);
   x.setAttribute('data-namespace', urlNamespace);
   doc.head.appendChild(x);
