@@ -1,0 +1,10 @@
+import { CompilerCtx, Config, EntryModule, HostConfig, HostRule, HostRuleHeader, HydrateComponent, HydrateResults, OutputTargetWww } from '../../declarations';
+export declare function generateHostConfig(config: Config, compilerCtx: CompilerCtx, outputTarget: OutputTargetWww, entryModules: EntryModule[], hydrateResultss: HydrateResults[]): Promise<void>;
+export declare function generateHostRule(config: Config, compilerCtx: CompilerCtx, outputTarget: OutputTargetWww, entryModules: EntryModule[], hydrateResults: HydrateResults): HostRule;
+export declare function generateHostRuleHeaders(config: Config, compilerCtx: CompilerCtx, outputTarget: OutputTargetWww, entryModules: EntryModule[], hydrateResults: HydrateResults): HostRuleHeader[];
+export declare function addBundles(config: Config, outputTarget: OutputTargetWww, entryModules: EntryModule[], hostRuleHeaders: HostRuleHeader[], components: HydrateComponent[]): void;
+export declare function getBundleIds(entryModules: EntryModule[], components: HydrateComponent[]): string[];
+export declare function sortComponents(components: HydrateComponent[]): HydrateComponent[];
+export declare function formatLinkRelPreloadHeader(url: string): HostRuleHeader;
+export declare function mergeUserHostConfig(userHostConfig: HostConfig, hostConfig: HostConfig): void;
+export declare const HOST_CONFIG_FILENAME = "host.config.json";

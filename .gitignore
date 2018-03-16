@@ -13,7 +13,6 @@ log.txt
 .versions/
 node_modules/
 
-**/dist/
 **/www/build/
 
 # submodule packages
